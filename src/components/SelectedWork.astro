@@ -1,0 +1,81 @@
+---
+import SectionHeader from './SectionHeader.astro';
+
+const cases = [
+  {
+    pill: 'Payments / Revenue Assurance',
+    title: '$170B Payments Platform: POS revenue leakage',
+    body: 'Diagnosed and recovered $1M in revenue leakage on a $170B+ digital payments platform. Analyzed customer transaction behavior and failure patterns to identify monetization gaps. Designed validation controls and monitoring frameworks that closed systemic leakage.',
+    stat: '$1M Recovered · Validation Controls Shipped',
+    tags: ['Revenue Operations', 'Payments', 'Diagnosis'],
+  },
+  {
+    pill: 'Strategy / Public Sector',
+    title: 'Central Bank of Nigeria: $300M procurement strategy',
+    body: 'Designed $300M+ procurement transformation strategy for Nigeria\'s Central Bank. Analyzed spend patterns, vendor governance, and fragmented workflows. Developed a three phase roadmap adopted by leadership as a multi year strategy.',
+    stat: '36% Modeled Cost Savings · 3-Phase Roadmap',
+    tags: ['Operating Model', 'Strategy', 'Multi-year Roadmap'],
+  },
+  {
+    pill: 'Executive Advisory / Banking',
+    title: 'Pan-African Bank: board innovation strategy',
+    body: 'Evaluated corporate strategy and innovation priorities for a Pan-African Bank operating across Senegal and Burkina Faso. Synthesized findings from 25+ board and C-suite interviews. Delivered recommendations that strengthened strategic direction and board effectiveness for executive decision making.',
+    stat: '25+ C-Suite Interviews · 3-Year Innovation Strategy',
+    tags: ['Operating Model', 'Strategy', 'Executive Advisory'],
+  },
+  {
+    pill: 'Payments / Product Partnership',
+    title: 'FinTech Dispute Platform: 95% of Nigerian banks',
+    body: 'Strengthened a FinTech dispute arbitration platform used by 95% of Nigerian banks. Partnered with Product and Engineering teams to surface systemic gaps and redesign workflows. Prevented $500K in losses.',
+    stat: '$500K Losses Prevented · 95% Market Coverage',
+    tags: ['Workflow Redesign', 'Product Partnership', 'Risk'],
+  },
+  {
+    pill: 'Business Ops / Customer Experience',
+    title: 'High growth WealthTech: case resolution +65%',
+    body: 'Accelerated case resolution efficiency by 65% for a high growth WealthTech. Analyzed customer SLA and complaint data to surface operational bottlenecks. Built KPI dashboards for real time customer experience monitoring.',
+    stat: '+65% Case Resolution · KPI Dashboards Deployed',
+    tags: ['BizOps', 'Customer Operations', 'KPI Dashboards'],
+  },
+  {
+    pill: 'Finance / Multi-country',
+    title: '$2B Cement Manufacturer: IFRS and operating model',
+    body: 'Orchestrated IFRS alignment and finance operating model review across $2B asset portfolio for Africa\'s largest cement manufacturer. Four country footprint covering Congo, Tanzania, Ethiopia, and Côte d\'Ivoire. Delivered CFO level recommendations that strengthened reporting integrity and control effectiveness.',
+    stat: '$2B Asset Portfolio · 4-Country Footprint',
+    tags: ['Operating Model', 'Finance Transformation', 'Multi-country'],
+  },
+];
+---
+<section id="selected-work" class="py-20 sm:py-24">
+  <div class="container-prose">
+    <SectionHeader eyebrow="Selected Past Work" />
+    <h2 class="section-title mt-8">Six case studies, deeper.</h2>
+    <p class="section-subtitle">Engagement level proof points from KPMG and Deloitte.</p>
+
+    <div class="mt-12 space-y-5">
+      {cases.map(({ pill, title, body, stat, tags }) => (
+        <article class="rounded-3xl bg-card-featured border border-card-featured-border p-7 sm:p-9 shadow-card hover:shadow-md transition-shadow">
+          <span class="pill">{pill}</span>
+          <div class="mt-5 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
+            <div class="lg:col-span-4">
+              <h3 class="font-serif font-bold text-navy text-xl sm:text-2xl leading-snug">{title}</h3>
+            </div>
+            <div class="lg:col-span-8 flex flex-col gap-5">
+              <p class="text-sm sm:text-base text-body leading-relaxed">{body}</p>
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-2">
+                <p class="text-xs text-teal-deep font-semibold uppercase tracking-wider2">{stat}</p>
+                <div class="flex flex-wrap gap-1.5">
+                  {tags.map((t) => (
+                    <span class="inline-flex items-center rounded-full bg-teal-tag text-teal-deep px-2.5 py-0.5 text-[10px] font-semibold">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

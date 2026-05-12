@@ -1,0 +1,96 @@
+---
+import SectionHeader from './SectionHeader.astro';
+
+const smallProjects = [
+  {
+    icon: 'chat',
+    title: 'Coffee Chat Prep Generator',
+    body: 'Input a person and a company. Output a 1-page prep doc with smart questions, recent post summaries, and the proof point I should lead with.',
+    tags: ['Claude API', 'Next.js'],
+    status: 'Coming soon',
+  },
+  {
+    icon: 'book',
+    title: 'Industry Primer Builder',
+    body: 'Feeds podcast transcripts and 10-Ks through Claude. Outputs a structured industry cheat sheet: revenue model, cost structure, key risks, trends.',
+    tags: ['Claude API', 'RAG'],
+    status: 'Coming soon',
+  },
+  {
+    icon: 'lightbulb',
+    title: 'Operations Diagnosis Assistant',
+    body: 'A Claude Project loaded with my frameworks (Profitability MECE, Theory of Constraints) that drills me on case archetypes or scopes a real ops problem with me.',
+    tags: ['Claude Projects'],
+    status: 'Coming soon',
+  },
+];
+
+const highlightTags = ['Streamlit', 'Claude API', 'Python'];
+---
+<section id="projects" class="py-20 sm:py-24">
+  <div class="container-prose">
+    <SectionHeader eyebrow="Projects" />
+    <h2 class="section-title mt-8">
+      Building tools that solve my own problems, and occasionally other people's.
+    </h2>
+
+    <!-- Highlight card -->
+    <article class="mt-14 rounded-3xl bg-card-featured border border-card-featured-border p-8 sm:p-10 lg:p-12 shadow-card">
+      <span class="pill">Building Now · Operations × AI</span>
+      <h3 class="mt-5 font-serif font-bold text-navy text-xl sm:text-2xl leading-snug max-w-3xl">
+        Payments Failure Diagnostic
+      </h3>
+      <p class="mt-5 max-w-3xl text-body text-base sm:text-lg leading-relaxed">
+        A small web app that takes raw transaction data and surfaces the top three failure
+        drivers: logical errors, validation gaps, monetization leaks. Built to operationalize
+        what I did at a $170B+ volume payments platform.
+      </p>
+      <div class="mt-7 flex flex-wrap items-center gap-2">
+        {highlightTags.map((t) => (
+          <span class="inline-flex items-center rounded-full bg-teal-tag text-teal-deep px-3 py-1 text-[11px] font-semibold">
+            {t}
+          </span>
+        ))}
+      </div>
+      <p class="mt-6 italic text-teal text-sm font-medium">In build. Shipping by mid-June 2026.</p>
+    </article>
+
+    <!-- Smaller project cards -->
+    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {smallProjects.map(({ icon, title, body, tags, status }) => (
+        <article class="flex flex-col rounded-3xl bg-card-featured border border-card-featured-border p-7 shadow-card hover:shadow-md transition-shadow">
+          <div class="flex items-center justify-center w-10 h-10 rounded-full bg-teal-pale text-teal-deep">
+            {icon === 'chat' && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+              </svg>
+            )}
+            {icon === 'book' && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+              </svg>
+            )}
+            {icon === 'lightbulb' && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18h6" />
+                <path d="M10 22h4" />
+                <path d="M12 2a7 7 0 0 1 4.2 12.6c-.4.3-.7.7-.9 1.2l-.3.9a1 1 0 0 1-1 .8h-4a1 1 0 0 1-1-.8l-.3-.9c-.2-.5-.5-.9-.9-1.2A7 7 0 0 1 12 2z" />
+              </svg>
+            )}
+          </div>
+          <h3 class="mt-5 font-serif font-bold text-navy text-lg sm:text-xl leading-snug">{title}</h3>
+          <p class="mt-3 text-sm text-body leading-relaxed flex-1">{body}</p>
+          <div class="mt-5 flex flex-wrap gap-1.5">
+            {tags.map((t) => (
+              <span class="inline-flex items-center rounded-full bg-teal-tag text-teal-deep px-2.5 py-0.5 text-[10px] font-semibold">
+                {t}
+              </span>
+            ))}
+          </div>
+          <p class="mt-4 text-xs italic text-teal">{status}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

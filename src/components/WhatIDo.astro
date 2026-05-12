@@ -1,0 +1,64 @@
+---
+import SectionHeader from './SectionHeader.astro';
+
+const cards = [
+  {
+    numeral: 'I',
+    title: 'Operations Strategy',
+    framing:
+      'Find broken operational systems at scale and redesign them. Process mapping, operating model design, end to end transformation.',
+    proof:
+      'Redesigned mobile airtime operations for Africa\'s largest payments company. Analyzed end to end fulfillment workflows and validation bottlenecks, and led implementation of wallet integrated automation. Reduced processing delays by 90%.',
+  },
+  {
+    numeral: 'II',
+    title: 'AI',
+    framing:
+      'Operator level fluency in AI workflows. Daily Claude user. Comfortable scoping analysis with AI, building Claude Projects, applying agentic patterns to business problems.',
+    proof:
+      'Live IBD project running with Claude as analytical copilot. First pass competitive scans, vertical prioritization, and revenue modeling across regulated industries.',
+  },
+  {
+    numeral: 'III',
+    title: 'Business Operations',
+    framing:
+      'Cross functional execution at scale. Operational metrics, KPI dashboards, customer experience operations, multi country delivery, partnering with Product, Engineering, and Finance.',
+    proof:
+      'Accelerated case resolution efficiency by 65% for a high growth WealthTech. Analyzed customer SLA and complaint data to surface operational bottlenecks. Built KPI dashboards for real time customer experience monitoring.',
+  },
+  {
+    numeral: 'IV',
+    title: 'Payments Operations',
+    framing:
+      'Deep payments and FinTech operations. Transaction level root cause analysis, revenue assurance, dispute platform redesign, cross functional fixes with Product and Engineering.',
+    proof:
+      'Diagnosed and recovered $1M in revenue leakage on a $170B+ digital payments platform. Analyzed customer transaction behavior and failure patterns to identify monetization gaps. Designed validation controls and monitoring frameworks that closed systemic leakage.',
+  },
+];
+---
+<section id="featured-work" class="py-20 sm:py-24">
+  <div class="container-prose">
+    <SectionHeader eyebrow="Featured Work" />
+    <h2 class="section-title mt-8">What I do</h2>
+    <p class="section-subtitle">
+      Four lenses on the same underlying capability. Operations transformation with AI
+      fluency built in.
+    </p>
+
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+      {cards.map(({ numeral, title, framing, proof }) => (
+        <article class="flex flex-col rounded-3xl bg-card-featured border border-card-featured-border p-7 shadow-card">
+          <div class="flex items-center justify-center w-12 h-12 rounded-full bg-offwhite text-teal font-serif text-xl ring-1 ring-teal/15">
+            {numeral}
+          </div>
+          <h3 class="mt-6 font-serif font-bold text-navy text-xl">{title}</h3>
+          <p class="mt-3 text-sm text-body leading-relaxed">{framing}</p>
+          <div class="mt-6 rounded-2xl bg-offwhite p-5 flex-1">
+            <p class="eyebrow">Proof</p>
+            <p class="mt-2 text-sm text-body leading-relaxed">{proof}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

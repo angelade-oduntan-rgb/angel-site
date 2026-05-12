@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light only;
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-cream text-body font-sans;
+  }
+  h1, h2, h3, h4 {
+    @apply font-serif text-navy;
+    letter-spacing: -0.01em;
+  }
+  section {
+    scroll-margin-top: 24px;
+  }
+}
+
+@layer components {
+  .container-prose {
+    @apply mx-auto w-full max-w-[1440px] px-6 sm:px-8 lg:px-14;
+  }
+  .eyebrow {
+    @apply font-sans text-xs font-semibold uppercase tracking-wider2 text-teal-deep;
+  }
+  .section-title {
+    @apply font-serif text-navy text-3xl sm:text-4xl lg:text-5xl leading-[1.1];
+  }
+  .section-subtitle {
+    @apply mt-4 max-w-3xl text-base sm:text-lg text-body;
+  }
+  .pill {
+    @apply inline-flex items-center rounded-full bg-teal-pill text-teal-deep px-3 py-1 text-[11px] font-semibold uppercase tracking-wider2;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-navy px-6 py-3 text-sm font-medium text-cream hover:bg-teal transition-colors;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-full border border-navy px-6 py-3 text-sm font-medium text-navy hover:bg-navy hover:text-cream transition-colors;
+  }
+}
