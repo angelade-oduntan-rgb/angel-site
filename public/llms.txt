@@ -1,0 +1,24 @@
+# Angel Ade-Oduntan
+
+> Operations strategist and UC Berkeley Haas MBA (Class of 2027). Redesigning how operations create value at scale in infrastructure-intensive businesses. Six years across power, telecom, industrial, banking, and payments.
+
+This site has a human view (visual portfolio) and a machine view (Markdown). Every page is available as Markdown at the links below, or by toggling the Human/Machine switch on any page, or by appending `?view=machine` to its URL.
+
+## Pages
+
+- [Home](/index.md): Profile, capabilities, experience, education, case studies, contact
+- [About](/about.md): Longer narrative — background, approach, and personal interests
+- [Writing](/writing.md): Essays on operations strategy and AI in the workflow (in progress)
+- [Selected Work](/selected-work.md): Personal projects and experiments (in progress)
+
+## Contact
+
+- Email: angel_ade-oduntan@berkeley.edu
+- LinkedIn: https://www.linkedin.com/in/angel-toki-adeoduntan
+- Résumé: /assets/Angel-Ade-Oduntan-Resume.pdf
+- Medium: https://medium.com/@tokiadeoduntan
+
+## Notes
+
+- Focus: operations strategy, operational transformation, cross-functional execution
+- Open to conversations about operations strategy and transformation in infrastructure-intensive businesses

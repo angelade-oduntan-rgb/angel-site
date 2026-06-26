@@ -381,5 +381,98 @@
   </footer>
 
 </div>
+<!--HM-START-->
+<style id="hm-style">
+#hm-toggle{position:fixed;z-index:9998;right:20px;bottom:20px;display:flex;align-items:center;background:#fff;border:1px solid #e7e6e2;border-radius:999px;padding:4px;box-shadow:0 2px 16px rgba(26,25,22,0.12);font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;}
+#hm-toggle button{appearance:none;border:0;background:transparent;cursor:pointer;font:inherit;font-size:12px;letter-spacing:0.03em;color:#514e47;padding:7px 14px;border-radius:999px;display:flex;align-items:center;gap:6px;transition:background .15s,color .15s;}
+#hm-toggle button.hm-on{background:#1a1916;color:#fff;}
+#hm-toggle .hm-dot{width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.65;}
+#hm-machine{position:fixed;inset:0;z-index:9999;background:#ffffff;color:#1a1916;display:none;flex-direction:column;}
+html.hm-machine-on #hm-machine{display:flex;}
+html.hm-machine-on{overflow:hidden;}
+#hm-bar{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:15px 22px;background:#1a1916;color:#fff;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;}
+#hm-bar .hm-label{font-size:12.5px;letter-spacing:0.05em;display:flex;align-items:center;gap:9px;}
+#hm-bar .hm-label .hm-dot{width:8px;height:8px;border-radius:50%;background:#cda04a;}
+#hm-bar .hm-actions{display:flex;gap:8px;flex-wrap:wrap;}
+#hm-bar a,#hm-bar button{appearance:none;font:inherit;font-size:12px;letter-spacing:0.02em;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,0.26);background:transparent;border-radius:6px;padding:7px 11px;cursor:pointer;}
+#hm-bar button#hm-close{border-color:#cda04a;}
+#hm-scroll{flex:1 1 auto;overflow:auto;padding:30px 22px 90px;}
+#hm-doc{max-width:820px;margin:0 auto;}
+#hm-context{border:1px solid #e7e6e2;border-radius:8px;padding:14px 16px;margin:0 0 24px;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:12.5px;line-height:1.75;color:#514e47;}
+#hm-context b{color:#1a1916;font-weight:600;}
+#hm-context a{color:#a3741a;text-decoration:none;border-bottom:1px solid #e7e6e2;}
+#hm-pre{white-space:pre-wrap;word-wrap:break-word;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:13.5px;line-height:1.75;color:#1a1916;margin:0;}
+@media(max-width:640px){#hm-toggle{right:12px;bottom:12px;}#hm-bar .hm-label{flex-basis:100%;}}
+</style>
+<div id="hm-toggle" role="group" aria-label="View mode">
+  <button id="hm-human" class="hm-on" aria-pressed="true"><span class="hm-dot"></span>Human</button>
+  <button id="hm-machine-btn" aria-pressed="false"><span class="hm-dot"></span>Machine</button>
+</div>
+<div id="hm-machine" role="dialog" aria-label="Machine-readable view" aria-modal="true">
+  <div id="hm-bar">
+    <div class="hm-label"><span class="hm-dot"></span>MACHINE VIEW · this page as Markdown</div>
+    <div class="hm-actions">
+      <button id="hm-copy">Copy Markdown</button>
+      <a href="/writing.md" target="_blank" rel="noopener">Raw .md &#8599;</a>
+      <a href="/llms.txt" target="_blank" rel="noopener">llms.txt &#8599;</a>
+      <a href="/AGENTS.md" target="_blank" rel="noopener">AGENTS.md &#8599;</a>
+      <button id="hm-close">&#10005; Human view</button>
+    </div>
+  </div>
+  <div id="hm-scroll">
+    <div id="hm-doc">
+      <div id="hm-context">
+        <b>For AI agents:</b> the same content as the human page, in Markdown — easy to parse, copy, and reference.<br>
+        Discovery: <a href="/llms.txt">/llms.txt</a> &middot; <a href="/AGENTS.md">/AGENTS.md</a> &middot; this page: <a href="/writing.md">/writing.md</a> &middot; résumé: <a href="/assets/Angel-Ade-Oduntan-Resume.pdf">PDF</a><br>
+        Tip: append <b>?view=machine</b> to any page URL to land here directly.
+      </div>
+      <pre id="hm-pre"># Writing — Notes from the work
+
+&gt; Short essays on operations strategy, operational transformation, and what it looks like to keep AI in the workflow without letting it run the decisions. The first pieces are being written; published work also lives on Medium.
+
+## In the works
+
+- **Operating models in the AI era** (Operations · AI in practice) — Why the org chart, not the model, is usually the real bottleneck — and how to redesign for agents in the loop without breaking accountability. _Draft · coming soon._
+- **Notes from an EU market-entry sprint** (Strategy · AI in practice) — Running discovery as a Claude Project: three parallel workstreams, 21 expert interviews, and where judgment still had to do the heavy lifting. _Draft · coming soon._
+- **Diagnosis over framework** (Operations) — What six years across power, telecom, banking, and payments taught me about finding the real break before reaching for a playbook. _Draft · coming soon._
+
+## Published writing
+
+New essays land on Medium first: https://medium.com/@tokiadeoduntan
+</pre>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var root=document.documentElement;
+  var human=document.getElementById('hm-human');
+  var mbtn=document.getElementById('hm-machine-btn');
+  var closeb=document.getElementById('hm-close');
+  var copyb=document.getElementById('hm-copy');
+  var pre=document.getElementById('hm-pre');
+  function set(machine){
+    root.classList.toggle('hm-machine-on',machine);
+    human.classList.toggle('hm-on',!machine);human.setAttribute('aria-pressed',String(!machine));
+    mbtn.classList.toggle('hm-on',machine);mbtn.setAttribute('aria-pressed',String(machine));
+    try{localStorage.setItem('hm-view',machine?'machine':'human');}catch(e){}
+    if(machine){var s=document.getElementById('hm-scroll');if(s)s.scrollTop=0;}
+  }
+  mbtn.addEventListener('click',function(){set(true);});
+  human.addEventListener('click',function(){set(false);});
+  closeb.addEventListener('click',function(){set(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&root.classList.contains('hm-machine-on'))set(false);});
+  copyb.addEventListener('click',function(){
+    var t=pre.textContent;
+    function done(){var o=copyb.textContent;copyb.textContent='Copied \u2713';setTimeout(function(){copyb.textContent=o;},1400);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,done);}
+    else{var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}ta.remove();done();}
+  });
+  var wantMachine=/[?&]view=machine/i.test(location.search)||/^#machine$/i.test(location.hash);
+  if(!wantMachine){try{wantMachine=localStorage.getItem('hm-view')==='machine';}catch(e){}}
+  if(wantMachine)set(true);
+})();
+</script>
+<!--HM-END-->
 </body>
 </html>
