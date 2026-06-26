@@ -10,7 +10,7 @@ Over time, I realized I was most energized by one type of problem: helping organ
 
 Today, I'm exploring how that work changes in the age of AI. Rather than seeing AI as another technology to adopt, I'm interested in how it reshapes operating models, decision-making, and execution. I'm especially curious about organizations building and operating critical infrastructure—from AI infrastructure and energy systems to payments and digital identity—where reliability, scale, and operational excellence matter.
 
-At UC Berkeley Haas, I'm building on that foundation through coursework in operations, strategy, and AI while applying those ideas to real-world consulting and product strategy projects. During my International Business Development project, I advised a multinational identity and payments company on its European market-entry strategy, using AI to accelerate research while keeping business judgment at the center of the work.
+At UC Berkeley Haas, I'm building on that foundation through coursework in operations, strategy, and AI while applying those ideas to real-world consulting and product strategy projects.
 
 Long term, I hope to help organizations navigate large-scale operational change by combining operations strategy, AI transformation, and cross-functional execution to build businesses that can adapt, scale, and operate better in an increasingly AI-driven world.
 
