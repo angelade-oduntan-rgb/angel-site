@@ -979,6 +979,7 @@ Operations strategy, cost transformation, and cross-functional execution at scal
 })();
 </script>
 <!--HM-END-->
+
 <!--DECK-START-->
 <style id="deck-style">#shell.deckmode{height:100vh;overflow:hidden;}</style>
 <script id="deck-script">
@@ -997,17 +998,30 @@ Operations strategy, cost transformation, and cross-functional execution at scal
   if(dots){ dots.innerHTML=''; pages.forEach(function(p,i){ var d=document.createElement('span'); d.addEventListener('click',function(){goTo(i);}); dots.appendChild(d); }); }
 
   function fitPages(){
-    pages.forEach(function(p){
-      var inner=p.firstElementChild; if(!inner) return;
-      if(!DESKTOP()){ inner.style.transform=''; inner.style.transformOrigin=''; inner.style.width=''; inner.style.maxWidth=''; inner.style.height=''; inner.style.marginLeft=''; return; }
-      inner.style.transform=''; inner.style.transformOrigin='top left'; inner.style.width='100%';
+    var desktop=DESKTOP();
+    // Measure each page at natural size (transform cleared)
+    var meta=pages.map(function(p){
+      var inner=p.firstElementChild; if(!inner) return null;
+      inner.style.transform=''; inner.style.transformOrigin='top left'; inner.style.width='100%'; inner.style.maxWidth=''; inner.style.height=''; inner.style.marginLeft='';
+      if(!desktop){ inner.style.width=''; p.style.overflowY=''; return null; }
       var cs=getComputedStyle(p);
       var avail=p.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom);
-      var need=inner.scrollHeight;
-      if(need>avail && avail>0){
-        var k=Math.max(0.62, avail/need);
-        inner.style.transform='scale('+k+')'; inner.style.width=(100/k)+'%'; inner.style.maxWidth=(1400/k)+'px'; inner.style.marginLeft='0'; inner.style.height=need+'px'; p.style.overflowY='hidden';
-      } else { inner.style.marginLeft=''; inner.style.maxWidth=''; inner.style.height=''; p.style.overflowY='auto'; }
+      return { p:p, inner:inner, avail:avail, need:inner.scrollHeight };
+    });
+    if(!desktop) return;
+    function scaleFor(m){ return (m && m.need>m.avail && m.avail>0) ? Math.max(0.62, m.avail/m.need) : 1; }
+    // Slides 2-4 share ONE scale = slide 2's (index 1), so their font sizes are uniform.
+    var kUniform = meta[1] ? scaleFor(meta[1]) : 1;
+    pages.forEach(function(p,idx){
+      var m=meta[idx]; if(!m) return;
+      var k = (idx>=1) ? kUniform : scaleFor(m); // cover (idx 0) keeps its own fit
+      if(k>=1){
+        m.inner.style.transform=''; m.inner.style.width=''; m.inner.style.maxWidth=''; m.inner.style.height=''; m.inner.style.marginLeft='';
+        p.style.overflowY = (m.need>m.avail+1) ? 'auto' : 'auto';
+      } else {
+        m.inner.style.transform='scale('+k+')'; m.inner.style.width=(100/k)+'%'; m.inner.style.maxWidth=(1400/k)+'px'; m.inner.style.marginLeft='0'; m.inner.style.height=m.need+'px';
+        p.style.overflowY = (m.need*k > m.avail+1) ? 'auto' : 'hidden';
+      }
     });
   }
   function applyPages(){
