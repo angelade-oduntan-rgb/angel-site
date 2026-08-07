@@ -592,7 +592,7 @@
 </style>
 </head>
 <body>
-<div style="min-height:100vh;display:flex;flex-direction:column;background:#0e2a2d;color:#eef2f1;font-family:'Hanken Grotesk',sans-serif;animation:fadeIn .4s ease both;">
+<div id="shell" style="min-height:100vh;display:flex;flex-direction:column;background:#0e2a2d;color:#eef2f1;font-family:'Hanken Grotesk',sans-serif;animation:fadeIn .4s ease both;">
 
   <div style="display:grid;grid-template-columns:1fr auto;background:#f4f2ea;color:#0e2a2d;position:sticky;top:0;z-index:50;">
     <div style="display:flex;align-items:center;gap:20px;min-width:0;padding:18px 40px;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#3d5457;flex-wrap:wrap;">
@@ -600,9 +600,9 @@
       <a href="#v2-history" style="color:#3d5457;text-decoration:none;white-space:nowrap;">Experience</a>
       <a href="#v2-caps" style="color:#3d5457;text-decoration:none;white-space:nowrap;">Capabilities</a>
       <a href="#v2-cases" style="color:#3d5457;text-decoration:none;white-space:nowrap;">Case studies</a>
-      <a href="About.dc.html" style="color:#3d5457;text-decoration:none;white-space:nowrap;">About</a>
-      <a href="Blog.dc.html" target="_blank" rel="noopener" style="color:#3d5457;text-decoration:none;white-space:nowrap;">Writing</a>
-      <a href="Projects.dc.html" target="_blank" rel="noopener" style="color:#3d5457;text-decoration:none;white-space:nowrap;">Selected work</a>
+      <a href="about.html" style="color:#3d5457;text-decoration:none;white-space:nowrap;">About</a>
+      <a href="writing.html" style="color:#3d5457;text-decoration:none;white-space:nowrap;">Writing</a>
+      <a href="selected-work.html" style="color:#3d5457;text-decoration:none;white-space:nowrap;">Selected work</a>
     </div>
     <a href="#v2-contact" style="display:flex;align-items:center;gap:12px;padding:18px 34px;border-left:1px solid #dedbcf;font-size:14px;font-weight:600;white-space:nowrap;text-decoration:none;color:#0e2a2d;">Get in touch <span style="color:#1a5f63;">→</span></a>
   </div>
@@ -624,7 +624,7 @@
       <div style="display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;">
         <div style="width:76px;height:76px;border-radius:50%;overflow:hidden;border:1px solid #2a4447;flex-shrink:0;"><img src="/assets/3454c5d3a61af9cf.jpg" alt="Angel Ade-Oduntan" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
         <div>
-          <h2 ref="{{ headlineRef }}" style="font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(27px,2.8vw,36px);line-height:1.06;letter-spacing:-0.032em;margin:0;">Redesigning how operations create value at scale.</h2>
+          <h2 id="hero-headline" style="font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(27px,2.8vw,36px);line-height:1.06;letter-spacing:-0.032em;margin:0;">Redesigning how operations create value at scale.</h2>
           <p style="margin:7px 0 0;font-size:17.5px;line-height:1.5;color:#c8dcda;">Six years advising clients in power, telecom, industrial manufacturing, and banking: cost transformation, operating-model design, controls and governance, from diagnosis through to recommendation.</p>
         </div>
       </div>
@@ -776,7 +776,7 @@
       </div>
 
       <div style="margin-top:44px;">
-        <a href="Projects.dc.html" target="_blank" rel="noopener" style="display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;background:#143336;padding:13px 15px;text-decoration:none;color:#eef2f1;">
+        <a href="selected-work.html" style="display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;background:#143336;padding:13px 15px;text-decoration:none;color:#eef2f1;">
         <div>
           <div style="font-family:'IBM Plex Mono',monospace;font-size:17.8px;letter-spacing:0.14em;text-transform:uppercase;color:#8fbdbe;">Selected work ↗</div>
           <h3 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:28.6px;letter-spacing:-0.03em;margin:7px 0 5px;">Projects &amp; builds</h3>
@@ -979,5 +979,81 @@ Operations strategy, cost transformation, and cross-functional execution at scal
 })();
 </script>
 <!--HM-END-->
+<!--DECK-START-->
+<style id="deck-style">#shell.deckmode{height:100vh;overflow:hidden;}</style>
+<script id="deck-script">
+(function(){
+  var shell=document.getElementById('shell');
+  var deck=document.getElementById('deck');
+  if(!deck) return;
+  var pages=Array.prototype.slice.call(deck.querySelectorAll(':scope > section'));
+  var next=document.getElementById('deck-next');
+  var prev=document.getElementById('deck-prev');
+  var dots=document.getElementById('deck-dots');
+  if(!pages.length) return;
+  var index=0, locked=false, unlock;
+  var DESKTOP=function(){return window.innerWidth>=900;};
+
+  if(dots){ dots.innerHTML=''; pages.forEach(function(p,i){ var d=document.createElement('span'); d.addEventListener('click',function(){goTo(i);}); dots.appendChild(d); }); }
+
+  function fitPages(){
+    pages.forEach(function(p){
+      var inner=p.firstElementChild; if(!inner) return;
+      if(!DESKTOP()){ inner.style.transform=''; inner.style.transformOrigin=''; inner.style.width=''; inner.style.maxWidth=''; inner.style.height=''; inner.style.marginLeft=''; return; }
+      inner.style.transform=''; inner.style.transformOrigin='top left'; inner.style.width='100%';
+      var cs=getComputedStyle(p);
+      var avail=p.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom);
+      var need=inner.scrollHeight;
+      if(need>avail && avail>0){
+        var k=Math.max(0.62, avail/need);
+        inner.style.transform='scale('+k+')'; inner.style.width=(100/k)+'%'; inner.style.maxWidth=(1400/k)+'px'; inner.style.marginLeft='0'; inner.style.height=need+'px'; p.style.overflowY='hidden';
+      } else { inner.style.marginLeft=''; inner.style.maxWidth=''; inner.style.height=''; p.style.overflowY='auto'; }
+    });
+  }
+  function applyPages(){
+    var desktop=DESKTOP();
+    deck.classList.toggle('static', !desktop);
+    if(shell) shell.classList.toggle('deckmode', desktop);
+    if(!desktop){ pages.forEach(function(p){ p.style.transform=''; p.style.pointerEvents=''; p.style.overflowY=''; }); if(next)next.hidden=true; if(prev)prev.hidden=true; return; }
+    pages.forEach(function(p,i){ var off=i<index?'-100%':(i>index?'100%':'0'); p.style.transform='translateY('+off+')'; p.style.pointerEvents=i===index?'auto':'none'; if(i!==index)p.scrollTop=0; });
+    if(next) next.hidden=index>=pages.length-1;
+    if(prev) prev.hidden=index===0;
+    if(dots) Array.prototype.slice.call(dots.children).forEach(function(d,i){ d.classList.toggle('on', i===index); });
+    fitPages();
+  }
+  function goTo(i){ var c=Math.max(0,Math.min(pages.length-1,i)); if(c===index) return; index=c; applyPages(); locked=true; clearTimeout(unlock); unlock=setTimeout(function(){locked=false;},660); }
+
+  if(next) next.addEventListener('click',function(){goTo(index+1);});
+  if(prev) prev.addEventListener('click',function(){goTo(index-1);});
+  document.addEventListener('keydown',function(e){ if(!DESKTOP()) return; if(e.key==='ArrowDown'||e.key==='PageDown'){e.preventDefault();goTo(index+1);} if(e.key==='ArrowUp'||e.key==='PageUp'){e.preventDefault();goTo(index-1);} });
+  deck.addEventListener('wheel',function(e){
+    if(!DESKTOP()||locked) return;
+    var page=pages[index];
+    var canScroll=page.scrollHeight-page.clientHeight>4;
+    if(canScroll){ var atTop=page.scrollTop<=0; var atEnd=page.scrollTop+page.clientHeight>=page.scrollHeight-2; if(e.deltaY>0&&!atEnd)return; if(e.deltaY<0&&!atTop)return; }
+    if(Math.abs(e.deltaY)<12) return;
+    e.preventDefault(); goTo(index+(e.deltaY>0?1:-1));
+  },{passive:false});
+  document.addEventListener('click',function(e){
+    var a=e.target.closest?e.target.closest('a[href^="#"]'):null; if(!a||!DESKTOP()) return;
+    var id=a.getAttribute('href').slice(1); var target=document.getElementById(id); if(!target) return;
+    var sec=target.closest('section'); var i=pages.indexOf(sec);
+    if(i>-1){ e.preventDefault(); goTo(i); }
+  });
+  var rz; window.addEventListener('resize',function(){ clearTimeout(rz); rz=setTimeout(applyPages,120); });
+  applyPages();
+
+  // headline typing effect (desktop only, once)
+  var el=document.getElementById('hero-headline');
+  if(el && DESKTOP()){
+    setTimeout(function(){
+      var full=el.textContent; el.style.minHeight=el.getBoundingClientRect().height+'px'; el.textContent='';
+      var caret=document.createElement('span'); caret.textContent=String.fromCharCode(0x258F); caret.style.color='#c7e7a4'; caret.style.marginLeft='2px'; caret.style.animation='caretBlink 1s steps(1) infinite'; el.appendChild(caret);
+      var i=0; var t=setInterval(function(){ i++; caret.remove(); el.textContent=full.slice(0,i); el.appendChild(caret); if(i>=full.length){ clearInterval(t); setTimeout(function(){caret.remove();},900); } },68);
+    },450);
+  }
+})();
+</script>
+<!--DECK-END-->
 </body>
 </html>
