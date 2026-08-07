@@ -4,7 +4,7 @@ _Personal · Tennis — What tennis taught me · 3 min read_
 
 > I found tennis during the pandemic, which is to say I found it at exactly the moment I needed something that was about staying in a contest.
 
-I don't love it purely as a spectacle. What holds me is what the sport asks of a person psychologically, which is more than almost anything else I watch.
+I don't love it purely as a source of entertainment. What holds me is what the sport asks of a person psychologically, which is more than almost anything else I watch.
 
 Start with the structure. Losing a point does not decide anything. Neither does losing a set. A match can run for hours, momentum can swing four or five times, and there is no rule that effort converts into a result on any particular schedule. All you can really do is reset and play the next point, and keep doing that long enough to give yourself a chance. I find that idea genuinely consoling — that being behind is a description of the current situation, not a verdict.
 
