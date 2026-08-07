@@ -983,6 +983,7 @@ Operations strategy, cost transformation, and cross-functional execution at scal
 
 
 
+
 <!--DECK-START-->
 <style id="deck-style">#shell.deckmode{height:100vh;overflow:hidden;}#shell.deckmode .deck>section{scrollbar-gutter:stable both-edges;}</style>
 <script id="deck-script">
@@ -1002,27 +1003,28 @@ Operations strategy, cost transformation, and cross-functional execution at scal
 
   function fitPages(){
     var desktop=DESKTOP();
-    // reset zoom so content sits at natural size, centered via its own margin:0 auto
     pages.forEach(function(p){ var inner=p.firstElementChild; if(inner) inner.style.zoom=''; if(!desktop){ p.style.overflowY=''; } });
     if(!desktop) return;
     function bodyPx(p){ var el=p.querySelector('p'); return el?parseFloat(getComputedStyle(el).fontSize):null; }
     function availOf(p){ var cs=getComputedStyle(p); return p.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom); }
-    var ref = pages[1] ? bodyPx(pages[1]) : null; // slide 2 body size = the standard
+    // Largest uniform rendered body size F such that EVERY content slide (2-4) fits with no overflow.
+    var F=Infinity, slide2base=pages[1]?bodyPx(pages[1]):16;
+    pages.forEach(function(p,idx){
+      if(idx<1) return;
+      var base=bodyPx(p), natH=p.firstElementChild.scrollHeight, avail=availOf(p);
+      if(base && natH>0){ F=Math.min(F, avail*base/natH*0.97); } // 0.97 = small breathing room
+    });
+    if(!isFinite(F)) F=slide2base;
+    F=Math.min(F, slide2base); // never larger than slide 2's own text (slide 2 = the standard)
     pages.forEach(function(p,idx){
       var inner=p.firstElementChild; if(!inner) return;
-      if(idx===0){ // cover: fit to viewport (it's short) so it never scrolls
-        var avail=availOf(p), need=inner.scrollHeight;
-        var k=(need>avail && avail>0)?Math.max(0.62, avail/need):1;
-        inner.style.zoom = k<1 ? k : '';
-        p.style.overflowY = 'hidden';
-        return;
+      if(idx===0){ // cover: fit itself, never scroll
+        var a=availOf(p), n=inner.scrollHeight, k=(n>a && a>0)?a/n*0.97:1;
+        inner.style.zoom = k<1 ? k : ''; p.style.overflowY='hidden'; return;
       }
-      // slides 2-4: normalize body text to slide 2's size (slide 2 -> 1), keep full width & centered
-      var px=bodyPx(p);
-      var z = (ref && px && px>ref+0.5) ? (ref/px) : 1;
+      var base=bodyPx(p), z=base ? F/base : 1; if(z>1) z=1;
       inner.style.zoom = z<1 ? z : '';
-      // scroll within the slide only if it is still taller than the viewport
-      p.style.overflowY = (inner.scrollHeight*(z<1?z:1) > availOf(p)+2) ? 'auto' : 'hidden';
+      p.style.overflowY='hidden'; // everything fits -> no scroll, nothing cut off
     });
   }
   function applyPages(){
