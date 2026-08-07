@@ -16,7 +16,7 @@ It helped that the sun did not set until nearly ten. The evenings ran long and w
 
 The other lesson was slower to arrive, and it was about slowing down. In interviews, in workshops, in presentations, I noticed that speaking quickly did not make me clearer — it just made me faster. So I started pacing my words, organizing my thoughts before they left my mouth, and leaving space for ideas to land. Conversations got better almost immediately. It turns out people need a moment to receive things.
 
-Most of what I loved about the trip was small. Trying escargots for the first time with my teammates. Sitting by the Seine after work, playing cards and watching people go by. Walking through the Jardin du Luxembourg. Taking the Metro and discovering that I genuinely enjoyed navigating a city on my own, including the parts where I got it wrong and had to find my way back.
+Most of what I loved about the trip was small. Trying escargots for the first time with my teammates. Sitting by the Seine after work, playing cards and watching people go by. Walking through the Jardin du Luxembourg. Taking the Metro and discovering that I genuinely enjoyed navigating a city on my own, including the parts where I got it wrong and had to find my way back, and at every step of the way, I was grateful to those that came up with the live view feature of Google Maps.
 
 That last one changed something. Before Paris I almost never took BART into San Francisco, on the assumption that I would not enjoy it. I had never tested the assumption. Since coming back, I take it — and I am far more willing to go toward places that feel unfamiliar.
 
