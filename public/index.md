@@ -15,7 +15,7 @@ Six years advising clients in power, telecom, industrial manufacturing, and bank
 
 - **Majestic Labs AI** — MBA Operations Intern (2026). Supply chain strategy and operations for AI server hardware. Built the supply chain operating model and integrated manufacturing schedule ahead of first production.
 - **TOPPAN Security** — MBA Strategy Consultant (2026). Market entry and go-to-market strategy for digital identity. Sized and prioritized regulated verticals for EU expansion, then defined the delivery and partnership model.
-- **Deloitte** — Senior Consultant (2021 - 2025). Senior Consultant 2024–25 · Semi-Senior 2023–24 · Associate II 2022–23 · Associate 2021–22. Redesigned operating models, procurement, and reporting for large industrial and financial organizations. Diagnosed where processes broke down, quantified the exposure, and led teams to ship the fixes. Engagements spanned public sector, energy, telecom, payments, industrial, and banking. Recognition for Quality Delivery (2023), awarded to 4 of 150+ practitioners.
+- **Deloitte** — Senior Consultant (2021 - 2025). Senior Consultant 2024–25 · Semi-Senior 2023–24 · Associate II 2022–23 · Associate 2021–22. Redesigned operating models, procurement, and reporting for large industrial and financial organizations. Engagements spanned public sector, energy, telecom, payments, industrial, and banking. Recognition for Quality Delivery (2023), awarded to 4 of 150+ practitioners.
 - **KPMG** — Consultant (2019 - 2021). Post-merger network optimization for banking and RFID-enabled inventory verification for consumer goods manufacturing. Branch rationalization, process execution reviews, and warehouse count redesign.
 
 ## Education
