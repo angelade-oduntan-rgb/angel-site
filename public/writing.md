@@ -1,12 +1,12 @@
-# Writing — Notes from the work
+# Writing — My reflections
 
-> Short essays on operations strategy, operational transformation, and what it looks like to keep AI in the workflow without letting it run the decisions. The first pieces are being written; published work also lives on Medium.
+> Short essays on the things that shaped how I think: mathematics, tennis, and the places I have been. Notes on operations and strategy will follow. Published work also lives on Medium.
 
-## In the works
+## Published
 
-- **Operating models in the AI era** (Operations · AI in practice) — Why the org chart, not the model, is usually the real bottleneck — and how to redesign for agents in the loop without breaking accountability. _Draft · coming soon._
-- **Notes from an EU market-entry sprint** (Strategy · AI in practice) — Running discovery as a Claude Project: three parallel workstreams, 21 expert interviews, and where judgment still had to do the heavy lifting. _Draft · coming soon._
-- **Diagnosis over framework** (Operations) — What six years across power, telecom, banking, and payments taught me about finding the real break before reaching for a playbook. _Draft · coming soon._
+- **The situation can be difficult without the outcome being decided** (Personal · Tennis, 3 min) — On resetting for the next point, why nobody can play it for you, and admiring a player less for winning than for being hard to defeat. → /tennis.html
+- **Everything has a structure underneath** (Personal · Mathematics, 3 min) — I never loved equations. I loved the process — and the moment a confusing thing resolves into a shape you can see. → /mathematics.html
+- **What Paris gave back to me** (Personal · Travel, Spring 2026, 4 min) — Long evenings, no destination, and the Water Lilies. On walking a city until the curious part of you wakes back up. → /paris.html
 
 ## Published writing
 

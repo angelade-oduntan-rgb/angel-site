@@ -1,15 +1,21 @@
 # Angel Ade-Oduntan
 
-> Operations strategist and UC Berkeley Haas MBA (Class of 2027). Redesigning how operations create value at scale in infrastructure-intensive businesses. Six years across power, telecom, industrial, banking, and payments.
+> Operations strategist and UC Berkeley Haas MBA (Class of 2027). Operations and transformation, from diagnosis to adoption — redesigning how operations create value at scale in infrastructure-intensive businesses. Six years across power, telecom, industrial manufacturing, and banking.
 
-This site has a human view (visual portfolio) and a machine view (Markdown). Every page is available as Markdown at the links below, or by toggling the Human/Machine switch on any page, or by appending `?view=machine` to its URL.
+This site has a human view (visual portfolio) and a machine view (Markdown). Every page is available as Markdown at the links below, by toggling the Human/Machine switch on any page, or by appending `?view=machine` to its URL.
 
 ## Pages
 
-- [Home](/index.md): Profile, capabilities, experience, education, case studies, contact
-- [About](/about.md): Longer narrative — background, approach, and personal interests
-- [Writing](/writing.md): Essays on operations strategy and AI in the workflow (in progress)
+- [Home](/index.md): Profile, experience, education, capabilities, case studies, contact
+- [About](/about.md): Longer narrative — background, approach, and where I'm heading
+- [Writing](/writing.md): Reflections (mathematics, tennis, travel)
 - [Selected Work](/selected-work.md): Personal projects and experiments (in progress)
+
+## Essays
+
+- [Everything has a structure underneath](/mathematics.md): On mathematics, structure, and how I think
+- [What Paris gave back to me](/paris.md): On travel, curiosity, and slowing down
+- [The situation can be difficult without the outcome being decided](/tennis.md): On tennis, composure, and accountability
 
 ## Contact
 
@@ -17,8 +23,3 @@ This site has a human view (visual portfolio) and a machine view (Markdown). Eve
 - LinkedIn: https://www.linkedin.com/in/angel-toki-adeoduntan
 - Résumé: /assets/Angel-Ade-Oduntan-Resume.pdf
 - Medium: https://medium.com/@tokiadeoduntan
-
-## Notes
-
-- Focus: operations strategy, operational transformation, cross-functional execution
-- Open to conversations about operations strategy and transformation in infrastructure-intensive businesses
