@@ -4,7 +4,7 @@ _Personal · Mathematics — Why I studied mathematics · 3 min read_
 
 > I studied mathematics because every problem had a structure underneath, and if you looked carefully enough, you could find it.
 
-People assume a mathematics degree means you love equations. I want to be precise, I do but the tick I get goes beyond that. I never fell for calculus or proofs on their own terms. What I loved was the process: taking something complex or ambiguous, breaking it into components, working out how those components relate, and reasoning toward an answer that holds.
+People assume a mathematics degree means you love equations. I want to be precise, I do but the tick I get goes beyond that. I loved the theorems and proofs more because of the process of taking something complex or ambiguous, breaking it into components, working out how those components relate, and reasoning toward an answer that holds.
 
 The pleasure was never in calculating. It was in the click — the moment the logic stops being a sequence of steps you are following and becomes a thing you can see whole. You turn a problem over for an hour, and then it resolves, and afterwards you cannot quite reconstruct why it was ever difficult. That moment is the whole reason I kept going.
 
